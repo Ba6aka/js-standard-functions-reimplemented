@@ -1,8 +1,5 @@
-# Standard JavaScript functions and methods reimplemented
-
-functions 
-
-### Array methods 
+// list of array methods:
+/*
 - .push()
 - .pop()
 - .shift()
@@ -18,3 +15,6 @@ functions
 - .filter()
 - .reduce()
 - .includes()
+
+*/
+
