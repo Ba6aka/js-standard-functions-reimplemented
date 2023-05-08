@@ -1,10 +1,10 @@
-const fs = require('fs');
-const path = require('path');
+const fs = require('fs')
+const path = require('path')
 
 function getAllArrayMethods() {
   let methodsString = ''
   const methods = Object.getOwnPropertyNames(Array.prototype).filter(function (prop) {
-    return typeof Array.prototype[prop] === 'function';
+    return typeof Array.prototype[prop] === 'function'
   })
 
   methods.forEach((method) => {
@@ -14,19 +14,17 @@ function getAllArrayMethods() {
   return methods
 }
 
-
-
 function createFoldersAndFiles(folderNames) {
   folderNames.forEach(folderName => {
-    const folderPath = `array/instance/${folderName}`;
+    const folderPath = `array/instance/${folderName}`
 
     if (!fs.existsSync(folderPath)) {
-      fs.mkdirSync(folderPath);
+      fs.mkdirSync(folderPath)
     }
 
-    fs.writeFileSync(path.join(folderPath, `${folderName}.js`), '');
-  });
+    fs.writeFileSync(path.join(folderPath, `${folderName}.js`), '')
+  })
 }
 
 
-createFoldersAndFiles(getAllArrayMethods());
+createFoldersAndFiles(getAllArrayMethods())
