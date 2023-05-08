@@ -22,10 +22,10 @@ a function to get a list of all the methods in format above:
 function getAllArrayMethods() {
   let methodsString = ''
   const methods = Object.getOwnPropertyNames(Array.prototype).filter(function(prop) {
-    return typeof Array.prototype[prop] === 'function';
+    return typeof Array.prototype[prop] === 'function'
   }).map(function(prop) {
-    return prop + '()';
-  });
+    return prop + '()'
+  })
   
   methods.forEach((method) => {
     methodsString += `- .${method}\n`
