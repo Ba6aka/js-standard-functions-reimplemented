@@ -1,16 +1,16 @@
 String.prototype.endsWith = function endsWith(searchString, position) {
-  position = position === undefined ? this.length : position;
+  position = position === undefined ? this.length : position
   
-  const searchLength = searchString.length;
-  const endPosition = position - searchLength;
+  const searchLength = searchString.length
+  const endPosition = position - searchLength
 
-  let i = endPosition < 0 ? 0 : endPosition;
+  let i = endPosition < 0 ? 0 : endPosition
 
   while (i < position) {
     if (this.charAt(i) !== searchString.charAt(i - endPosition)) {
-      return false;
+      return false
     }
-    i++;
+    i++
   }
-  return true;
+  return true
 }

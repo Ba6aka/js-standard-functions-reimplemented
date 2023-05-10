@@ -1,3 +1,3 @@
 String.prototype.fontcolor = function fontcolor(color) {
-  return `<font color="${color}">${this}</font>`;
+  return `<font color="${color}">${this}</font>`
 }
