@@ -1,3 +1,3 @@
 String.prototype.bold = function() {
-  return '<b>' + this + '</b>';
-};
+  return '<b>' + this + '</b>'
+}

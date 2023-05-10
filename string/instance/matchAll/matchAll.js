@@ -1,20 +1,20 @@
 String.prototype.matchAll = function matchAll(regexp) {
-  const matches = [];
+  const matches = []
 
-  let result = null;
+  let result = null
 
-  const lastIndexBackup = regexp.lastIndex;
+  const lastIndexBackup = regexp.lastIndex
   
-  regexp.lastIndex = 0;
+  regexp.lastIndex = 0
   
   while (result = regexp.exec(this)) {
-    matches.push(result);
+    matches.push(result)
     
     if (result.index === regexp.lastIndex) {
-      regexp.lastIndex++;
+      regexp.lastIndex++
     }
   }
   
-  regexp.lastIndex = lastIndexBackup;
-  return matches;
+  regexp.lastIndex = lastIndexBackup
+  return matches
 }
