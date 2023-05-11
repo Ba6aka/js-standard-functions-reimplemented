@@ -14,7 +14,7 @@ function testSub() {
 
   {// Test case 2: empty string
     const str2 = ""
-    const sub2 = str2.sub();
+    const sub2 = str2.sub()
 
     if (sub2 !== "<sub></sub>") {
       console.error('Test case 2 failed')

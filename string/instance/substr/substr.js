@@ -5,7 +5,7 @@ String.prototype.substr = function substr(start, length) {
 
   // Normalize negative start value
   if (start < 0) {
-    start = Math.max(strLength + start, 0);
+    start = Math.max(strLength + start, 0)
   }
 
   // Calculate end index
