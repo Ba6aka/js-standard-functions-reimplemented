@@ -2,7 +2,11 @@ String.prototype.at = function at(index) {
   const str = this.toString()
   const length = str.length >>> 0
 
-  if (index < 0 || index >= length) {
+  if (index < 0) {
+    return str.charAt(length + index)
+  }
+
+  if (index >= length) {
     return undefined
   }
 

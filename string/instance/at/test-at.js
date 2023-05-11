@@ -1,7 +1,7 @@
 require('./at.js')
 
 function testAt() {
-  {// Test case 1
+  {// Test case 1: standard case
     const str = 'hello'
     const result = str.at(1)
 
@@ -12,18 +12,7 @@ function testAt() {
     }
   }
 
-  {// Test case 2
-    const str = 'world'
-    const result = str.at(4)
-
-    if (result !== 'd') {
-      console.error('Test case 2 failed')
-    } else {
-      console.log('Test case 2 passed')
-    }
-  }
-
-  {// Test case 3
+  {// Test case 2:out range index
     const str = 'test'
     const result = str.at(10)
 
@@ -34,9 +23,9 @@ function testAt() {
     }
   }
 
-  {// Test case 4
+  {// Test case 3: negative index
     const str = 'hello'
-    const result = str.at(str.length - 2)
+    const result = str.at(-2)
 
     if (result !== 'l') {
       console.error('Test case 4 failed')
@@ -45,9 +34,9 @@ function testAt() {
     }
   }
 
-  {// Test case 5
+  {// Test case 4: fractional index
     const str = 'world'
-    const result = str.at(str.length - 1)
+    const result = str.at(4.5)
 
     if (result !== 'd') {
       console.error('Test case 5 failed')
