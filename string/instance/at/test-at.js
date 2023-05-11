@@ -17,9 +17,9 @@ function testAt() {
     const result = str.at(10)
 
     if (result !== undefined) {
-      console.error('Test case 3 failed')
+      console.error('Test case 2 failed')
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test case 2 passed')
     }
   }
 
@@ -28,9 +28,9 @@ function testAt() {
     const result = str.at(-2)
 
     if (result !== 'l') {
-      console.error('Test case 4 failed')
+      console.error('Test case 3 failed')
     } else {
-      console.log('Test case 4 passed')
+      console.log('Test case 3 passed')
     }
   }
 
@@ -39,12 +39,11 @@ function testAt() {
     const result = str.at(4.5)
 
     if (result !== 'd') {
-      console.error('Test case 5 failed')
+      console.error('Test case 4 failed')
     } else {
-      console.log('Test case 5 passed')
+      console.log('Test case 4 passed')
     }
   }
-  
 }
 
 testAt()
