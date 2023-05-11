@@ -2,7 +2,7 @@ require('./padStart.js')
 
 function testPadStart() {
   {// Test case 1: standard
-    const str = "Hello";
+    const str = "Hello"
     const paddedStr = str.padStart(7, "123")
 
     if (paddedStr !== "12Hello") {
@@ -13,7 +13,7 @@ function testPadStart() {
   }
 
   {// Test case 2: without fillString
-    const str = "World";
+    const str = "World"
     const paddedStr = str.padStart(10)
 
     if (paddedStr !== "     World") {

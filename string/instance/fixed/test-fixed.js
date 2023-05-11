@@ -24,4 +24,4 @@ function testFixed() {
   }
 }
 
-testFixed();
+testFixed()
