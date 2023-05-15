@@ -1,53 +1,54 @@
 require('./entries.js')
 
 function testEntries() {
-  const arr = ['a', 'b', 'c']
-  
-  { // Test case 1
-    const entries1 = arr.entries()
-    const expected1 = [[0, 'a'], [1, 'b'], [2, 'c']]
-    
-    for (let i = 0; i < expected1.length; i++) {
-      const [index, value] = entries1.next().value
-      if (index !== expected1[i][0] || value !== expected1[i][1]) {
-        console.error('Test case 1 failed')
+  const { stringify } = JSON
+
+  { // Test case 1: normal case
+    const arr = ['a', 'b', 'c']
+    const expected = [[0, 'a'], [1, 'b'], [2, 'c']]
+    const actual = arr.entries()
+
+    for (let i = 0; i < expected.length; i++) {
+      const [index, value] = actual.next().value
+      if (index !== expected[i][0] || value !== expected[i][1]) {
+        console.error(`Test 1, normal case: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
         return
       }
     }
-    
-    console.log('Test case 1: passed')
+
+    console.log('Test 1, normal case: passed')
   }
-  
-  { // Test case 2
-    const arr2 = []
-    const entries2 = arr2.entries()
-    const expected2 = []
-    
-    for (let i = 0; i < expected2.length; i++) {
-      const [index, value] = entries2.next().value
-      if (index !== expected2[i][0] || value !== expected2[i][1]) {
-        console.error('Test case 2 failed')
+
+  { // Test case 2: empty array
+    const arr = []
+    const expected = []
+    const actual = arr.entries()
+
+    for (let i = 0; i < expected.length; i++) {
+      const [index, value] = actual.next().value
+      if (index !== expected[i][0] || value !== expected[i][1]) {
+        console.error(`Test 2, empty array: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
         return
       }
     }
-    
-    console.log('Test case 2: passed')
+
+    console.log('Test 2, empty array: passed')
   }
-  
-  { // Test case 3
-    const arr3 = ['a']
-    const entries3 = arr3.entries()
-    const expected3 = [[0, 'a']]
-    
-    for (let i = 0; i < expected3.length; i++) {
-      const [index, value] = entries3.next().value
-      if (index !== expected3[i][0] || value !== expected3[i][1]) {
-        console.error('Test case 3 failed')
+
+  { // Test case 3: array with one item
+    const arr = ['a']
+    const expected = [[0, 'a']]
+    const actual = arr.entries()
+
+    for (let i = 0; i < expected.length; i++) {
+      const [index, value] = actual.next().value
+      if (index !== expected[i][0] || value !== expected[i][1]) {
+        console.error(`Test 3, array with one item: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
         return
       }
     }
-    
-    console.log('Test case 3: passed')
+
+    console.log('Test 3, array with one item: passed')
   }
 }
 
