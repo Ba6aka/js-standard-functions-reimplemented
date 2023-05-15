@@ -3,7 +3,7 @@ require('./entries.js')
 function testEntries() {
   const arr = ['a', 'b', 'c']
   
-  {// Test case 1
+  { // Test case 1
     const entries1 = arr.entries()
     const expected1 = [[0, 'a'], [1, 'b'], [2, 'c']]
     
@@ -15,10 +15,10 @@ function testEntries() {
       }
     }
     
-    console.log('Test case 1 passed')
+    console.log('Test case 1: passed')
   }
   
-  {// Test case 2
+  { // Test case 2
     const arr2 = []
     const entries2 = arr2.entries()
     const expected2 = []
@@ -31,10 +31,10 @@ function testEntries() {
       }
     }
     
-    console.log('Test case 2 passed')
+    console.log('Test case 2: passed')
   }
   
-  {// Test case 3
+  { // Test case 3
     const arr3 = ['a']
     const entries3 = arr3.entries()
     const expected3 = [[0, 'a']]
@@ -47,7 +47,7 @@ function testEntries() {
       }
     }
     
-    console.log('Test case 3 passed')
+    console.log('Test case 3: passed')
   }
 }
 

@@ -9,7 +9,7 @@ function testToString() {
     if (result !== '1,hello,true') {
       console.error('Test case 1 failed')
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test case 1: passed')
     }
   }
 
@@ -21,7 +21,7 @@ function testToString() {
     if (result !== '') {
       console.error('Test case 2 failed')
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test case 2: passed')
     }
   }
 
@@ -33,7 +33,7 @@ function testToString() {
     if (result !== ',1,hello') {
       console.error('Test case 3 failed')
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test case 3: passed')
     }
   }
 
@@ -45,7 +45,7 @@ function testToString() {
     if (result !== ',1,hello') {
       console.error('Test case 4 failed')
     } else {
-      console.log('Test case 4 passed')
+      console.log('Test case 4: passed')
     }
   }
 }

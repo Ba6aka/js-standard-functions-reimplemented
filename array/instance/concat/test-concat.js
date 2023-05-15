@@ -1,64 +1,71 @@
 require('./test-concat.js')
 
+testConcat()
+
 function testConcat() {
-  {// Test case 1
+  const { stringify } = JSON
+
+  { // Test case 1: two arrays
     const arr1 = [1, 2, 3]
     const arr2 = [4, 5, 6]
-    const arr3 = arr1.concat(arr2)
+    const expected = [1, 2, 3, 4, 5, 6]
+    const actual = arr1.concat(arr2)
 
-    if (arr3.toString() !== [1, 2, 3, 4, 5, 6].toString()) {
-      console.error('Test case 1 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 1, two arrays: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, two arrays: passed')
     }
   }
 
-  {// Test case 2
-    const arr4 = [1, 2, 3]
-    const arr5 = [4, 5, 6]
-    const arr6 = [7, 8, 9]
-    const arr7 = arr4.concat(arr5, arr6)
+  { // Test case 2: more than two arrays
+    const arr1 = [1, 2, 3]
+    const arr2 = [4, 5, 6]
+    const arr3 = [7, 8, 9]
+    const expected = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    const actual = arr1.concat(arr2, arr3)
 
-    if (arr7.toString() !== [1, 2, 3, 4, 5, 6, 7, 8, 9].toString()) {
-      console.error('Test case 2 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 2, more than two arrays: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, more than two arrays: passed')
     }
   }
 
-  {// Test case 3
-    const arr8 = [1, 2, 3]
-    const arr9 = arr8.concat(4, 5, 6)
+  { // Test case 3: non-array values
+    const arr = [1, 2, 3]
+    const expected = [1, 2, 3, 4, 5, 6]
+    const actual = arr.concat(4, 5, 6)
 
-    if (arr9.toString() !== [1, 2, 3, 4, 5, 6].toString()) {
-      console.error('Test case 3 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 3, non-array values: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test 3, non-array values: passed')
     }
   }
 
-  {// Test case 4
-    const arr10 = [1, 2, 3]
-    const arr11 = arr10.concat([4, 5, 6])
+  { // Test case 4: empty arguments
+    const arr = [1, 2, 3]
+    const expected = [1, 2, 3, null, undefined]
+    const actual = arr.concat(null, undefined)
 
-    if (arr11.toString() !== [1, 2, 3, 4, 5, 6].toString()) {
-      console.error('Test case 4 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 4, empty arguments: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 4 passed')
+      console.log('Test 4, empty arguments: passed')
     }
   }
 
-  {// Test case 5
-    const arr12 = [1, 2, 3]
-    const arr13 = arr12.concat(4, [5, 6])
+  { // Test case 4: mix of arrays and non-array values
+    const arr1 = [1, 2, 3]
+    const arr2 = [5, 6]
+    const expected = [1, 2, 3, 4, null, 5, 6, undefined]
+    const actual = arr1.concat(4, null, arr2, undefined)
 
-    if (arr13.toString() !== [1, 2, 3, 4, 5, 6].toString()) {
-      console.error('Test case 5 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 4, mix of arrays and non-array values: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 5 passed')
+      console.log('Test 4, mix of arrays and non-array values: passed')
     }
   }
-  
 }
-
-testConcat()

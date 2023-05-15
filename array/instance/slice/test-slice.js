@@ -8,7 +8,7 @@ function testSlice() {
     if (JSON.stringify(result1) !== JSON.stringify([1, 2, 3, 4, 5])) {
       console.error('Test case 1 failed')
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test case 1: passed')
     }
   }
 
@@ -19,7 +19,7 @@ function testSlice() {
     if (JSON.stringify(result2) !== JSON.stringify([3, 4, 5])) {
       console.error('Test case 2 failed')
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test case 2: passed')
     }
   }
 
@@ -30,7 +30,7 @@ function testSlice() {
     if (JSON.stringify(result3) !== JSON.stringify([2, 3, 4])) {
       console.error('Test case 3 failed')
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test case 3: passed')
     }
   }
   {  // Test case 4: slice with negative start argument
@@ -40,18 +40,18 @@ function testSlice() {
     if (JSON.stringify(result4) !== JSON.stringify([3, 4, 5])) {
       console.error('Test case 4 failed')
     } else {
-      console.log('Test case 4 passed')
+      console.log('Test case 4: passed')
     }
   }
 
-  {// Test case 5: slice with negative end argument
+  { // Test case 5: slice with negative end argument
     const arr5 = [1, 2, 3, 4, 5]
     const result5 = arr5.slice(1, -1)
 
     if (JSON.stringify(result5) !== JSON.stringify([2, 3, 4])) {
       console.error('Test case 5 failed')
     } else {
-      console.log('Test case 5 passed')
+      console.log('Test case 5: passed')
     }
   }
 }

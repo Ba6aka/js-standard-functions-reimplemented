@@ -1,7 +1,7 @@
 require('./forEach.js')
 
 function testForEach() {
-  {// Test case 1
+  { // Test case 1
     const arr1 = [1, 2, 3, 4, 5]
 
     let sum = 0
@@ -12,11 +12,11 @@ function testForEach() {
     if (sum !== 15) {
       console.error('Test case 1 failed')
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test case 1: passed')
     }
   }
 
-  {// Test case 2
+  { // Test case 2
     const arr2 = ['foo', 'bar', 'baz']
 
     let result = ''
@@ -27,11 +27,11 @@ function testForEach() {
     if (result !== 'foo,bar,baz') {
       console.error('Test case 2 failed')
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test case 2: passed')
     }
   }
 
-  {//Test case 3: thisArg
+  { //Test case 3: thisArg
     const arr3 = [1, 2, 3, 4, 5]
     const obj = {
       sum: 0,
@@ -45,11 +45,11 @@ function testForEach() {
     if (obj.sum !== 15) {
       console.error('Test case 3 failed')
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test case 3: passed')
     }
   }
 
-  {//Test case 4: wrong argument
+  { //Test case 4: wrong argument
     const arr4 = [1, 2, 3, 4, 5]
 
     try {
@@ -58,7 +58,7 @@ function testForEach() {
       if (err.message !== 'undefined is not a function') {
         console.error('Test case 4 failed')
       } else {
-        console.log('Test case 4 passed')
+        console.log('Test case 4: passed')
       }
     }
   }

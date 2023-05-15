@@ -10,7 +10,7 @@ function testKeys() {
   if (!arraysEqual(result1, expected1)) {
     console.error('Test case 1 failed')
   } else {
-    console.log('Test case 1 passed')
+    console.log('Test case 1: passed')
   }
 
   // Test case 2
@@ -22,7 +22,7 @@ function testKeys() {
   if (!arraysEqual(result2, expected2)) {
     console.error('Test case 2 failed')
   } else {
-    console.log('Test case 2 passed')
+    console.log('Test case 2: passed')
   }
 
   // Test case 3
@@ -34,7 +34,7 @@ function testKeys() {
   if (!arraysEqual(result3, expected3)) {
     console.error('Test case 3 failed')
   } else {
-    console.log('Test case 3 passed')
+    console.log('Test case 3: passed')
   }
 
   // Test case 4
@@ -46,7 +46,7 @@ function testKeys() {
   if (!arraysEqual(result4, expected4)) {
     console.error('Test case 4 failed')
   } else {
-    console.log('Test case 4 passed')
+    console.log('Test case 4: passed')
   }
 
   // Test case 5
@@ -58,7 +58,7 @@ function testKeys() {
   if (!arraysEqual(result5, expected5)) {
     console.error('Test case 5 failed')
   } else {
-    console.log('Test case 5 passed')
+    console.log('Test case 5: passed')
   }
 }
 
