@@ -3,51 +3,61 @@ require('./filter.js')
 testFilter()
 
 function testFilter() {
+  const { stringify } = JSON
 
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4, 5]
-    let evenNumbers = arr1.filter((num) => num % 2 === 0)
-    if (evenNumbers.toString() !== [2, 4].toString()) {
-      console.error('Test case 1 failed')
+  { // Test case 1: even case
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [2, 4]
+    const actual = arr.filter((num) => num % 2 === 0)
+
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 1, even case: failed, expected: ${stringify(expected)}, actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, even case: passed')
     }
   }
 
-  { // Test case 2 
-    const arr2 = [1, 2, 3, 4, 5]
-    let oddNumbers = arr2.filter((num) => num % 2 !== 0)
-    if (oddNumbers.toString() !== [1, 3, 5].toString()) {
-      console.error('Test case 2 failed')
+  { // Test case 2: odd case
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [1, 3, 5]
+    const actual = arr.filter((num) => num % 2 !== 0)
+
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 2, odd case: failed, expected: ${stringify(expected)}, actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, odd case: passed')
     }
   }
 
   { //Test case 3: none passing
-    const arr3 = [1, 2, 3, 4, 5]
-    let numbers = arr3.filter((num) => num > 10)
-    if (numbers.toString() !== [].toString()) {
-      console.error('Test case 3 failed')
+    const arr = [1, 2, 3, 4, 5]
+    const expected = []
+    const actual = arr.filter((num) => num > 10)
+
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 3, none passing: failed, expected: ${stringify(expected)}, actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, none passing: passed')
     }
   }
 
   { //Test case 4: wrong argument
-    const arr4 = [1, 2, 3, 4, 5]
+    const arr = [1, 2, 3, 4, 5]
+    const expected = undefined
+
+    let actual
     try {
-      arr4.filter()
+      actual = arr.filter()
     } catch (err) {
-      if (err.message !== 'undefined is not a function') {
-        console.error('Test case 4 failed')
+      if (actual !== expected) {
+        console.error(`Test 4, wrong argument: failed, expected: ${expected},but got: ${actual}`)
       } else {
-        console.log('Test case 4: passed')
+        console.log('Test 4, wrong argument: passed')
       }
     }
   }
 
- try { //Test case 5: thisArg
+  try { //Test case 5: thisArg
     const arr = [1, 2, 3, 4, 5]
     const expert = {
       values: [1, 2, 3],
@@ -55,11 +65,11 @@ function testFilter() {
         return this.values.includes(item)
       }
     }
-  
+
     if (arr.filter(expert.check, expert).toString() !== [1, 2, 3].toString()) {
-      console.error('Test case 5 failed')
+      console.error(`Test 5, thisArg: failed, expected ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, thisArg: passed')
     }
   } catch (err) {
     console.error('Test case 5 throws')
