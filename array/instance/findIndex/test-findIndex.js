@@ -1,55 +1,57 @@
 require('./findIndex.js')
 
 function testFindIndex() {
+  const { stringify } = JSON
 
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4, 5]
+  { // Test case 1: normal case
+    const arr = [1, 2, 3, 4, 5]
+    const expected = 1
+    const actual = arr.findIndex((num) => num % 2 === 0)
 
-    let foundIndex = arr1.findIndex((num) => num % 2 === 0)
-    if (foundIndex !== 1) {
-      console.error('Test case 1 failed')
-
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, normal case: failed, expected: ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  { // Test case 2 
-    const arr2 = [1, 3, 5]
+  { // Test case 2: negative index
+    const arr = [1, 3, 5]
+    const expected = -1
+    const actual = arr.findIndex((num) => num % 2 === 0)
 
-    let foundIndex = arr2.findIndex((num) => num % 2 === 0)
-
-    if (foundIndex !== -1) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, negative index: failed, expected: ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, negative index: passed')
     }
   }
 
   { //Test case 3: finding an object
-    const arr3 = [
+    const arr = [
       { id: 1, name: 'John' },
       { id: 2, name: 'Mary' },
       { id: 3, name: 'Bob' }
     ]
+    const expected = 1
+    const actual = arr.findIndex((person) => person.name === 'Mary')
 
-    let foundIndex = arr3.findIndex((person) => person.name === 'Mary')
-    if (foundIndex !== 1) {
-      console.error('Test case 3 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, finding an object: failed, expected: ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, finding an object: passed')
     }
   }
 
   { //Test case 4: empty array
     const arr4 = []
+    const expected = -1
+    const actual = arr4.findIndex((num) => num > 10)
 
-    let foundIndex = arr4.findIndex((num) => num > 10)
-    
-    if (foundIndex !== -1) {
-      console.error('Test case 4 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, empty array: failed, expected: ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, empty array: passed')
     }
   }
 
@@ -61,11 +63,13 @@ function testFindIndex() {
         return item === this.value
       }
     }
-  
-    if (arr.findIndex(expert.check, expert) !== 2) {
-      console.error('Test case 5 failed')
+    const expected = 2
+    const actual = arr.findIndex(expert.check, expert)
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 5, thisArg: failed, expected ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, thisArg: passed')
     }
   }
 }
