@@ -1,63 +1,65 @@
 require('./fill.js')
 
 function testFill() {
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4, 5]
+  const { stringify } = JSON
 
-    let filledArr = arr1.fill(0)
+  { // Test case 1: normal case
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [0, 0, 0, 0, 0]
+    const actual = arr.fill(0)
 
-    if (filledArr.toString() !== [0, 0, 0, 0, 0].toString()) {
-      console.error('Test case 1 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, normal case: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, normal case passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = [1, 2, 3, 4, 5]
+  { // Test case 2: start and end index
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [1, 0, 0, 0, 5]
+    const actual = arr.fill(0, 1, 4)
 
-    let filledArr = arr2.fill(0, 1, 4)
-
-    if (filledArr.toString() !== [1, 0, 0, 0, 5].toString()) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, start and end index: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, start and end index: passed')
     }
   }
 
-  { //Test case 3
-    const arr3 = [1, 2, 3, 4, 5]
+  { //Test case 3: negative end index
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [0, 0, 0, 0, 5]
+    const actual = arr.fill(0, 0, -1)
 
-    let filledArr = arr3.fill(0, 0, -1)
-
-    if (filledArr.toString() !== [0, 0, 0, 0, 5].toString()) {
-      console.error('Test case 3 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 3, negative end index: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, negative end index: passed')
     }
   }
 
-  { //Test case 4
-    const arr4 = [1, 2, 3, 4, 5]
+  { //Test case 4: negative end index
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [1, 0, 0, 4, 5]
+    const actual = arr.fill(0, 1, -2)
 
-    let filledArr = arr4.fill(0, 1, -2)
-
-    if (filledArr.toString() !== [1, 0, 0, 4, 5].toString()) {
-      console.error('Test case 4 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 4, negative end index: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, negative end index: passed')
     }
   }
 
-  { //Test case 5
+  { //Test case 5: empty array
     const arr5 = []
+    const expected = []
+    const actual = arr5.fill(0)
 
-    let filledArr = arr5.fill(0)
-    
-    if (filledArr.toString() !== [].toString()) {
-      console.error('Test case 5 failed')
+    if (stringify(expected) !== stringify(actual)) {
+      console.error(`Test 5, empty array: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, empty array: passed')
     }
   }
 }
