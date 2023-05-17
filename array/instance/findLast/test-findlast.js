@@ -1,69 +1,76 @@
 require('./findLast.js')
 
 function testFindLast() {
+  const { stringify } = JSON
 
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4, 5]
+  { // Test case 1: even case
+    const arr = [1, 2, 3, 4, 5]
+    const expected = 4
+    const actual = arr.findLast((num) => num % 2 === 0)
 
-    let lastEvenNumber = arr1.findLast((num) => num % 2 === 0)
-
-    if (lastEvenNumber !== 4) {
-      console.error('Test case 1 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, even case: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, even case: passed')
     }
   }
 
-  { // Test case 2 
-    const arr2 = [1, 2, 3, 4, 5]
+  { // Test case 2 : odd case
+    const arr = [1, 2, 3, 4, 5]
+    const expected = 5
+    const actual = arr.findLast((num) => num % 2 !== 0)
 
-    let lastOddNumber = arr2.findLast((num) => num % 2 !== 0)
-
-    if (lastOddNumber !== 5) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, odd case: failed, expected ${stringify(expected)},but got ${stringify(actual)} `)
     } else {
-      console.log('Test case 2: passed')
+      console.log("Test 2, odd case: passed")
     }
   }
 
   { //Test case 3: none passing
-    const arr3 = [1, 2, 3, 4, 5]
+    const arr = [1, 2, 3, 4, 5]
+    const expected = undefined
+    const actual = arr.findLast((num) => num > 10)
 
-    let greaterThanTen = arr3.findLast((num) => num > 10)
-    
-    if (greaterThanTen !== undefined) {
-      console.error('Test case 3 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, none passing: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, none passin: passed')
     }
   }
 
   { //Test case 4: wrong argument
-    const arr4 = [1, 2, 3, 4, 5]
+    const arr = [1, 2, 3, 4, 5]
+    const expected = undefined
+
+    let actual
+
     try {
-      arr4.findLast()
+      actual = arr.findLast()
     } catch (err) {
-      if (err.message !== 'undefined is not a function') {
-        console.error('Test case 4 failed')
+      if (stringify(actual) !== stringify(expected)) {
+        console.error(`Test 4, wrong argument: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
       } else {
-        console.log('Test case 4: passed')
+        console.log('Test 4, wrong argument: passed')
       }
     }
   }
 
   try { //Test case 5: thisArg
-    const arr5 = [1, 2, 3, 4, 5]
+    const arr = [1, 2, 3, 4, 5]
     const expert = {
       values: [1, 2, 3],
       check(item) {
         return this.values.includes(item)
       }
     }
-  
-    if (arr5.findLast(expert.check, expert) !== 3) {
-      console.error('Test case 5 failed')
+    const expected = 3
+    const actual = arr.findLast(expert.check, expert)
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 5, thisArg: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, thisArg: passed')
     }
   } catch (err) {
     console.error('Test case 5 throws')
