@@ -1,64 +1,77 @@
 require('./forEach.js')
 
 function testForEach() {
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4, 5]
+  const { stringify } = JSON
 
-    let sum = 0
+  { // Test case 1: array of numbers
+    const arr = [1, 2, 3, 4, 5]
+    const expected = 15
 
-    arr1.forEach((num) => {
-      sum += num
+    let actual = 0
+
+    arr.forEach((num) => {
+      actual += num
     })
-    if (sum !== 15) {
-      console.error('Test case 1 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, array of numbers: failed, expeted: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, array of numbers: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = ['foo', 'bar', 'baz']
+  { // Test case 2: array of strings
+    const arr = ['foo', 'bar', 'baz']
+    const expeted = 'foo,bar,baz'
 
-    let result = ''
+    let actual = ''
 
-    arr2.forEach((str, index) => {
-      result += `${str}${index === arr2.length - 1 ? '' : ','}`
+    arr.forEach((str, index) => {
+      actual += `${str}${index === arr.length - 1 ? '' : ','}`
     })
-    if (result !== 'foo,bar,baz') {
-      console.error('Test case 2 failed')
+
+    if (stringify(actual) !== stringify(expeted)) {
+      console.error(`Test 2, array of strings: failed, expeted: ${expeted}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, array of strings: passed')
     }
   }
 
   { //Test case 3: thisArg
-    const arr3 = [1, 2, 3, 4, 5]
+    const arr = [1, 2, 3, 4, 5]
+    const expected = 15
     const obj = {
       sum: 0,
       add(num) {
         this.sum += num
       }
     }
+    arr.forEach(obj.add, obj)
 
-    arr3.forEach(obj.add, obj)
+    const actual = obj.sum
 
-    if (obj.sum !== 15) {
-      console.error('Test case 3 failed')
+
+    if (stringify(actual) !== stringify(actual)) {
+      console.error(`Test 3, thisArg: failed, expeted: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, thisArg: passed')
     }
   }
 
   { //Test case 4: wrong argument
-    const arr4 = [1, 2, 3, 4, 5]
+    const arr = [1, 2, 3, 4, 5]
+    const expected = 'undefined is not a function'
+
+    let actual
 
     try {
-      arr4.forEach()
+      arr.forEach()
     } catch (err) {
-      if (err.message !== 'undefined is not a function') {
-        console.error('Test case 4 failed')
+      actual = err.message
+
+      if (stringify(actual) !== stringify(expected)) {
+        console.error(`Test 4, wrong argument: failed, expeted: ${expected}, but got actual: ${actual}`)
       } else {
-        console.log('Test case 4: passed')
+        console.log('Test 4, wrong argument: passed')
       }
     }
   }
