@@ -1,53 +1,65 @@
 require('./includes.js')
 
 function testIncludes() {
-  {  // Test case 1
-    const arr1 = [1, 2, 3, 4, 5]
+  const { stringify } = JSON
 
-    if (arr1.includes(3) !== true) {
-      console.error('Test case 1 failed')
+  {  // Test case 1: array of numbers
+    const arr = [1, 2, 3, 4, 5]
+    const expected = true
+    const actual = arr.includes(3)
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, array of numbers: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, array of numbers: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = ['apple', 'banana', 'orange']
+  { // Test case 2: array of string
+    const arr = ['apple', 'banana', 'orange']
+    const expected = true
+    const actual = arr.includes('banana')
 
-    if (arr2.includes('banana') !== true) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, array of string: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, array of string: passed')
     }
   }
 
-  { // Test case 3
-    const arr3 = ['apple', 'banana', 'orange']
+  { // Test case 3: wrong argument
+    const arr = ['apple', 'banana', 'orange']
+    const expected = false
+    const actual = arr.includes('kiwi')
 
-    if (arr3.includes('kiwi') !== false) {
-      console.error('Test case 3 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, wrong argument: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, wrong argument: passed')
     }
   }
 
-  { // Test case 4
-    const arr4 = ['apple', 'banana', 'orange']
+  { // Test case 4: wrong index
+    const arr = ['apple', 'banana', 'orange']
+    const expected = false
+    const actual = arr.includes('banana', 2)
 
-    if (arr4.includes('banana', 2) !== false) {
-      console.error('Test case 4 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, wrong index: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, wrong index: passed')
     }
   }
 
-  { // Test case 5
-    const arr5 = ['apple', 'banana', 'orange']
+  { // Test case 5: negative index
+    const arr = ['apple', 'banana', 'orange']
+    const expected = false
+    const actual = arr.includes('banana', -1)
 
-    if (arr5.includes('banana', -1) !== false) {
-      console.error('Test case 5 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 5, negative index: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 4, negative index: passed')
     }
   }
 
