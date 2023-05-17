@@ -9,7 +9,7 @@ function testFindLast() {
     const actual = arr.findLast((num) => num % 2 === 0)
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 1, even case: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
+      console.error(`Test 1, even case: failed, expected ${expected},but got ${actual}`)
     } else {
       console.log('Test 1, even case: passed')
     }
@@ -21,7 +21,7 @@ function testFindLast() {
     const actual = arr.findLast((num) => num % 2 !== 0)
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 2, odd case: failed, expected ${stringify(expected)},but got ${stringify(actual)} `)
+      console.error(`Test 2, odd case: failed, expected ${expected},but got ${actual} `)
     } else {
       console.log("Test 2, odd case: passed")
     }
@@ -33,7 +33,7 @@ function testFindLast() {
     const actual = arr.findLast((num) => num > 10)
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 3, none passing: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
+      console.error(`Test 3, none passing: failed, expected ${expected},but got ${actual}`)
     } else {
       console.log('Test 3, none passin: passed')
     }
@@ -49,7 +49,7 @@ function testFindLast() {
       actual = arr.findLast()
     } catch (err) {
       if (stringify(actual) !== stringify(expected)) {
-        console.error(`Test 4, wrong argument: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
+        console.error(`Test 4, wrong argument: failed, expected ${expected},but got ${actual}`)
       } else {
         console.log('Test 4, wrong argument: passed')
       }
@@ -68,7 +68,7 @@ function testFindLast() {
     const actual = arr.findLast(expert.check, expert)
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 5, thisArg: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
+      console.error(`Test 5, thisArg: failed, expected ${expected},but got ${actual}`)
     } else {
       console.log('Test 5, thisArg: passed')
     }
