@@ -44,9 +44,9 @@ function testFindIndex() {
   }
 
   { //Test case 4: empty array
-    const arr4 = []
+    const arr = []
     const expected = -1
-    const actual = arr4.findIndex((num) => num > 10)
+    const actual = arr.findIndex((num) => num > 10)
 
     if (stringify(actual) !== stringify(expected)) {
       console.error(`Test 4, empty array: failed, expected: ${stringify(expected)}, but got ${stringify(actual)}`)
