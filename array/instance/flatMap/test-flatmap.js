@@ -1,79 +1,90 @@
 require('./flatMap.js')
 
 function testFlatMap() {
+  const { stringify } = JSON
 
-  { // Test case 1
-    const arr1 = [1, 2, 3]
-    const mappedValues1 = arr1.flatMap((num) => [num * 2])
+  { // Test case 1: array of numbers
+    const arr = [1, 2, 3]
+    const expected = [2, 4, 6]
+    const actual = arr.flatMap((num) => [num * 2])
 
-    if (mappedValues1.toString() !== [2, 4, 6].toString()) {
-      console.error('Test case 1 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, array of numbers: failed, expexted: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, array of numbers: passed')
     }
   }
 
-  { // Test case 2 
-    const arr2 = ['hello', 'world']
-    const mappedValues2 = arr2.flatMap((str) => str.split(''))
+  { // Test case 2 : array of strings
+    const arr = ['hello', 'world']
+    const expected = ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd']
+    const actual = arr.flatMap((str) => str.split(''))
 
-    if (mappedValues2.toString() !== ['h', 'e', 'l', 'l', 'o', 'w', 'o', 'r', 'l', 'd'].toString()) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, array of strings: failed, expexted: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, array of strings: passed')
     }
   }
 
-  { //Test case 3
-    const arr3 = [1, 2, 3]
-    const mappedValues3 = arr3.flatMap((num) => [[num, num * 2]])
+  { //Test case 3: nested array
+    const arr = [1, 2, 3]
+    const expected = [[1, 2], [2, 4], [3, 6]]
+    const actual = arr.flatMap((num) => [[num, num * 2]])
 
-    if (mappedValues3.toString() !== [[1, 2], [2, 4], [3, 6]].toString()) {
-      console.error('Test case 3 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, nested array: failed, expexted: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, nested array: passed')
     }
   }
 
   { //Test case 4: empty array
-    const arr4 = []
-    const mappedValues4 = arr4.flatMap((num) => [num * 2])
+    const arr = []
+    const expected = []
+    const actual = arr.flatMap((num) => [num * 2])
 
-    if (mappedValues4.toString() !== [].toString()) {
-      console.error('Test case 4 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, empty array: failed, expexted: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, empty array: passed')
     }
   }
 
   { //Test case 5: wrong argument
-    const arr5 = [1, 2, 3]
+    const arr = [1, 2, 3]
+    const expected = 'flatMap mapper function is not callable'
+
+    let actual
 
     try {
-      arr5.flatMap()
+      arr.flatMap()
     } catch (err) {
-      if (err.message !== 'flatMap mapper function is not callable') {
-        console.error('Test case 5 failed')
+      actual = err.message
+
+      if (stringify(actual) !== stringify(expected)) {
+        console.error(`Test 5, wrong argument: failed, expected: ${expected}, but got actual: ${actual}`)
       } else {
-        console.log('Test case 5: passed')
+        console.log('Test 5, wrong argument: passed')
       }
     }
   }
 
   { //Test case 6: thisArg
-    const arr6 = [1, 2, 3]
+    const arr = [1, 2, 3]
     const expert = {
       multiplyBy: 2,
       mapFunc(num) {
         return num * this.multiplyBy
       }
     }
-    const mappedValues6 = arr6.flatMap(expert.mapFunc, expert)
-    
-    if (mappedValues6.toString() !== [2, 4, 6].toString()) {
-      console.error('Test case 6 failed')
+    const expected = [2, 4, 6]
+    const actual = arr.flatMap(expert.mapFunc, expert)
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 6, thisArg: failed, expected: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 6: passed')
+      console.log('Test 6, thisArg: passed')
     }
   }
 }
