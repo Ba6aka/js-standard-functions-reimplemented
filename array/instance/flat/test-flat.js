@@ -9,7 +9,7 @@ function testFlat() {
     const actual = arr.flat()
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 1, three lvl of nested: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
+      console.error(`Test 1, three lvl of nested: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
       console.log('Test 1, three lvl of nested: passed')
     }
@@ -21,7 +21,7 @@ function testFlat() {
     const actual = arr.flat()
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 2, five lvl of nested: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
+      console.error(`Test 2, five lvl of nested: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
       console.log('Test 2, five lvl of nested: passed')
     }
@@ -33,7 +33,7 @@ function testFlat() {
     const actual = arr.flat(2)
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 3, depth: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
+      console.error(`Test 3, depth: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
       console.log('Test 3, depth: passed')
     }
@@ -45,7 +45,7 @@ function testFlat() {
     const actual = arr.flat()
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 4, empty array: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
+      console.error(`Test 4, empty array: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
       console.log('Test 4, empty array: passed')
     }
@@ -57,7 +57,7 @@ function testFlat() {
     const actual = arr.flat()
 
     if (stringify(actual) !== stringify(expected)) {
-      console.error(`Test 5, non-array values: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
+      console.error(`Test 5, non-array values: failed, expected: ${expected},but got actual: ${actual}`)
     } else {
       console.log('Test 5, non-array values: passed')
     }
