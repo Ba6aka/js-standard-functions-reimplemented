@@ -1,56 +1,67 @@
 require('./flat.js')
 
 function testFlat() {
-  { // Test case 1
-    const arr1 = [1, [2, 3], [4, [5, 6]]]
-    let result = arr1.flat()
-    if (result.toString() !== [1, 2, 3, 4, 5, 6].toString()) {
-      console.error('Test case 1 failed')
+  const { stringify } = JSON
+
+  { // Test case 1: three lvl of nested
+    const arr = [1, [2, 3], [4, [5, 6]]]
+    const expected = [1, 2, 3, 4, 5, 6]
+    const actual = arr.flat()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, three lvl of nested: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, three lvl of nested: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = [1, [2, [3, [4, [5]]]]]
-    let result = arr2.flat()
-    if (result.toString() !== [1, 2, 3, 4, 5].toString()) {
-      console.error('Test case 2 failed')
+  { // Test case 2: five lvl of nested
+    const arr = [1, [2, [3, [4, [5]]]]]
+    const expected = [1, 2, 3, 4, 5]
+    const actual = arr.flat()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, five lvl of nested: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, five lvl of nested: passed')
     }
   }
 
   { //Test case 3: depth
-    const arr3 = [1, [2, [3, [4, [5]]]]]
-    let result = arr3.flat(2)
-    if (result.toString() !== [1, 2, 3, 4, 5].toString()) {
-      console.error('Test case 3 failed')
+    const arr = [1, [2, [3, [4, [5]]]]]
+    const expected = [1, 2, 3, 4, 5]
+    const actual = arr.flat(2)
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, depth: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, depth: passed')
     }
   }
 
   { //Test case 4: empty array
-    const arr4 = []
-    let result = arr4.flat()
-    if (result.toString() !== [].toString()) {
-      console.error('Test case 4 failed')
+    const arr = []
+    const expected = []
+    const actual = arr.flat()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, empty array: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, empty array: passed')
     }
   }
 
   { //Test case 5: non-array values
-    const arr5 = [1, 2, 'hello', [3, 4], { prop: 'value' }]
-    let result = arr5.flat()
-    if (result.toString() !== [1, 2, 'hello', 3, 4, { prop: 'value' }].toString()) {
-      console.error('Test case 5 failed')
+    const arr = [1, 2, 'hello', [3, 4], { prop: 'value' }]
+    const expected = [1, 2, 'hello', 3, 4, { prop: 'value' }]
+    const actual = arr.flat()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 5, non-array values: failed, expected: ${stringify(expected)},but got actual: ${stringify(actual)}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, non-array values: passed')
     }
   }
-
 }
 
 testFlat()
