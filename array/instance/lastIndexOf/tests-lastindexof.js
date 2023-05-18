@@ -1,66 +1,72 @@
 require('./lastIndexOf.js')
 
 function testLastIndexOf() {
+  const { stringify } = JSON
 
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4, 5, 4]
-    const searchElement1 = 4
-    const result1 = arr1.lastIndexOf(searchElement1)
+  { // Test case 1: normal case
+    const arr = [1, 2, 3, 4, 5, 4]
+    const searchItem = 5
+    const expected = 4
+    const actual = arr.lastIndexOf(searchItem)
 
-    if (result1 !== 5) {
-      console.error('Test case 1 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, normal case: failed, expected ${expected},but got ${actual}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = ['a', 'b', 'c', 'a']
-    const searchElement2 = 'a'
-    const fromIndex2 = 2
-    const result2 = arr2.lastIndexOf(searchElement2, fromIndex2)
+  { // Test case 2: from index
+    const arr = ['a', 'b', 'c', 'a']
+    const searchItem = 'a'
+    const expected = 0
+    const fromIndex = 2
+    const actual = arr.lastIndexOf(searchItem, fromIndex)
 
-    if (result2 !== 0) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, from index: failed, expected ${expected},but got ${actual}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, from index: passed')
     }
   }
 
-  { //Test case 3
+  { //Test case 3: wrong argument
     const arr3 = ['a', 'b', 'c']
-    const searchElement3 = 'd'
-    const result3 = arr3.lastIndexOf(searchElement3)
+    const searchElement = 'd'
+    const expected = -1
+    const actual = arr3.lastIndexOf(searchElement)
 
-    if (result3 !== -1) {
-      console.error('Test case 3 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, wrong argument: failed, expected ${expected},but got ${actual}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, wrong argument: passed')
     }
   }
 
   { //Test case 4: empty array
-    const arr4 = []
-    const searchElement4 = 1
-    const result4 = arr4.lastIndexOf(searchElement4)
+    const arr = []
+    const searchElement = 1
+    const expected = -1
+    const actual = arr.lastIndexOf(searchElement)
 
-    if (result4 !== -1) {
-      console.error('Test case 4 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, empty array: failed, expected ${expected},but got ${actual}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, empty array: passed')
     }
   }
 
   { //Test case 5: numbers array
-    const arr5 = [1, 2, 3, 4, 5]
-    const searchElement5 = 0
-    const fromIndex5 = 2
-    const result5 = arr5.lastIndexOf(searchElement5, fromIndex5)
+    const arr = [1, 2, 3, 4, 5]
+    const searchElement = 0
+    const expected = -1
+    const fromIndex = 2
+    const actual = arr.lastIndexOf(searchElement, fromIndex)
 
-    if (result5 !== -1) {
-      console.error('Test case 5 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 5, numbers array: failed, expected ${expected},but got ${actual}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, numbers array: passed')
     }
   }
 }
