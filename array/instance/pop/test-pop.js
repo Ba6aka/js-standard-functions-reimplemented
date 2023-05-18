@@ -1,43 +1,61 @@
 require('./pop.js')
 
 function testPop() {
-  { // Test case 1
-    const arr1 = ['a', 'b', 'c']
-    const poppedItem = arr1.pop()
-    if (poppedItem !== 'c' || arr1.length !== 2) {
-      console.error('Test case 1 failed')
+  const { stringify } = JSON
+
+  { // Test case 1: array of strings
+    const arr = ['a', 'b', 'c']
+    const expected = 'c'
+    const expectedArrayLength = 2
+    const actual = arr.pop()
+    const actualArrayValue = arr.length
+
+    if ((stringify(actual) !== stringify(expected)) || (stringify(actualArrayValue) !== stringify(expectedArrayLength))) {
+      console.error(`Test 1, array of strings failed, expected ${expected} and expected array length ${expectedArrayLength} but got ${actual} and ${actualArrayValue}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, array of strings: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = [1, 2, 3]
-    const poppedItem = arr2.pop()
-    if (poppedItem !== 3 || arr2.length !== 2) {
-      console.error('Test case 2 failed')
+  { // Test case 2: normal
+    const arr = [1, 2, 3]
+    const expected = 3
+    const expectedArrayLength = 2
+    const actual = arr.pop()
+    const actualArrayLength = arr.length
+
+    if ((stringify(actual) !== stringify(expected)) || (stringify(actualArrayLength) !== stringify(expectedArrayLength))) {
+      console.error(`Test 2, normal case: failed, expected ${expected} and expected array length ${expectedArrayLength} but got ${actual} and ${actualArrayLength}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2 normal case: passed')
     }
   }
 
-  { // Test case 3
-    const arr3 = [true, false]
-    const poppedItem = arr3.pop()
-    if (poppedItem !== false || arr3.length !== 1) {
-      console.error('Test case 3 failed')
+  { // Test case 3: array of boolean values
+    const arr = [true, false]
+    const expected = false
+    const expectedArrayLength = 1
+    const actual = arr.pop()
+    const actualArrayLength = arr.length
+
+    if ((stringify(actual) !== stringify(expected)) || (stringify(actualArrayLength) !== stringify(expectedArrayLength))) {
+      console.error(`Test 3, array of boolean values: failed, expected ${expected} and expected array length ${expectedArrayLength} but got ${actual} and ${actualArrayLength}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, array of boolean: passed')
     }
   }
 
   { // Test case 4: empty array
-    const arr4 = []
-    const poppedItem = arr4.pop()
-    if (poppedItem !== undefined || arr4.length !== 0) {
-      console.error('Test case 4 failed')
+    const arr = []
+    const expected = undefined
+    const expectedArrayLength = 0
+    const actual = arr.pop()
+    const actualArrayLength = arr.length
+
+    if ((stringify(actual) !== stringify(expected)) || (stringify(actualArrayLength) !== stringify(expectedArrayLength))) {
+      console.error(`Test 4, empty array: failed, expected ${expected} and expected array length ${expectedArrayLength} but got ${actual} and ${actualArrayLength}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, empty array: passed')
     }
   }
 }
