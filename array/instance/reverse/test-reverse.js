@@ -1,45 +1,51 @@
 function testReverse() {
-  // Test case 1
-  {
-    const arr1 = [1, 2, 3]
-    const result = arr1.reverse()
-    if (result[0] === 3 && result[1] === 2 && result[2] === 1) {
-      console.log("Test case 1: passed")
+  const { stringify } = JSON
+
+  { // Test case 1: number case
+    const arr = [1, 2, 3]
+    const expected = [3, 2, 1]
+    const actual = arr.reverse()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, number case: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.error("Test case 1 failed")
+      console.log('Test 1, number case: passed')
     }
   }
 
-  // Test case 2
-  {
-    const arr2 = ["a", "b", "c", "d"]
-    const result = arr2.reverse()
-    if (result[0] === "d" && result[1] === "c" && result[2] === "b" && result[3] === "a") {
-      console.log("Test case 2: passed")
+  { // Test case 2: string case
+    const arr = ["a", "b", "c", "d"]
+    const expected = ["d", "c", "b", "a"]
+    const actual = arr.reverse()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, string case: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.error("Test case 2 failed")
+      console.log('Test 2, string case: passed')
     }
   }
 
-  // Test case 3
-  {
-    const arr3 = [1]
-    const result = arr3.reverse()
-    if (result[0] === 1) {
-      console.log("Test case 3: passed")
+  { // Test case 3: one element case
+    const arr = [1]
+    const expected = [1]
+    const actual = arr.reverse()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, one element case: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.error("Test case 3 failed")
+      console.log('Test 3, one element case: passed')
     }
   }
 
-  // Test case 4
-  {
-    const arr4 = []
-    const result = arr4.reverse()
-    if (result.length === 0) {
-      console.log("Test case 4: passed")
+  { // Test case 4: empty array
+    const arr = []
+    const expected = []
+    const actual = arr.reverse()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, empty array: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.error("Test case 4 failed")
+      console.log('Test 4, empty array: passed')
     }
   }
 }
