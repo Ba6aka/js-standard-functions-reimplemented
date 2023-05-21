@@ -4,5 +4,6 @@ Array.prototype.reverse = function reverse() {
     this[i] = this[this.length - i - 1]
     this[this.length - i - 1] = temp
   }
+  
   return this
 }
