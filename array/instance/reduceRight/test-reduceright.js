@@ -1,44 +1,48 @@
 require('./reduceRight.js')
 
 function testReduceRight() {
-  { // Test case 1
-    const arr1 = [1, 2, 3, 4]
-    const result = arr1.reduceRight((acc, val) => acc + val)
 
-    if (result !== 10) {
-      console.error('Test case 1 failed')
+  { // Test case 1: normal case
+    const arr = [1, 2, 3, 4]
+    const expected = 10
+    const actual = arr.reduceRight((acc, val) => acc + val)
+
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected ${expected},but got ${actual} `)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = ['a', 'b', 'c']
-    const result = arr2.reduceRight((acc, val, index) => acc + val + index, '')
+  { // Test case 2: string accumulator
+    const arr = ['a', 'b', 'c']
+    const expected = 'c2b1a0'
+    const actual = arr.reduceRight((acc, val, index) => acc + val + index, '')
 
-    if (result !== 'c2b1a0') {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, string accumulator: failed, expected ${expected},but got ${actual}`)
     } else {
       console.log('Test case 2: passed')
     }
   }
 
   { // Test case 3: with initial value
-    const arr3 = [1, 2, 3, 4]
-    const result = arr3.reduceRight((acc, val) => acc - val, 20)
+    const arr = [1, 2, 3, 4]
+    const expected = 10
+    const actual = arr.reduceRight((acc, val) => acc - val, 20)
 
-    if (result !== 10) {
-      console.error('Test case 3 failed')
+    if (actual !== expected) {
+      console.error(`Test 3, with initial value: failed, expected ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, with initial value: passed')
     }
   }
 
-  { // Test case 4: empty array without initial value
-    const arr4 = []
+  { // Test case 4: empty array 
+    const arr = []
     let errorThrown = false
     try {
-      arr4.reduceRight((acc, val) => acc + val)
+      arr.reduceRight((acc, val) => acc + val)
     } catch (e) {
       errorThrown = true
       if (e.message !== 'Reduce of empty array with no initial value') {
@@ -48,18 +52,19 @@ function testReduceRight() {
       }
     }
     if (!errorThrown) {
-      console.error('Test case 4 failed')
+      console.error('Test case 4: failed, exception thrown')
     }
   }
 
   { // Test case 5: empty array with initial value
-    const arr5 = []
-    const result = arr5.reduceRight((acc, val) => acc + val, 100)
+    const arr = []
+    const expected = 100
+    const actual = arr.reduceRight((acc, val) => acc + val, 100)
 
-    if (result !== 100) {
-      console.error('Test case 5 failed')
+    if (actual !== expected) {
+      console.error(`Test case 5, empty array with initial value: failed, expected ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test case 5, empty array with initial value: passed')
     }
   }
 }
