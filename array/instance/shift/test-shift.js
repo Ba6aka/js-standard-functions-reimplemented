@@ -1,36 +1,44 @@
 require('./shift.js')
 
 function testShift() {
-  { // Test case 1
-    const arr1 = ['a', 'b', 'c']
-    const result = arr1.shift()
+  const { stringify } = JSON
 
-    if (result !== 'a' || arr1.length !== 2 || arr1[0] !== 'b' || arr1[1] !== 'c') {
-      console.error('Test case 1 failed')
+  { // Test case 1: normal case
+    const expectedOutput = 'a'
+    const expectedArr = ['b', 'c']
+    const ActualArr = ['a', 'b', 'c']
+    const actualOutput = ActualArr.shift()
+
+    if ((stringify(actualOutput) !== stringify(expectedOutput)) || (stringify(ActualArr) !== stringify(expectedArr))) {
+      console.error(`Test 1, normal case: failed, expected output ${expectedOutput}, but got actual ${actualOutput}, expected arr ${expectedArr}, but got ${ActualArr}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Tesе 1, normal case: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = ['a']
-    const result = arr2.shift()
+  { // Test case 2: one item
+    const expectedOutput = 'a'
+    const expectedArr = []
+    const actualArr = ['a']
+    const actualOutput = actualArr.shift()
 
-    if (result !== 'a' || arr2.length !== 0) {
-      console.error('Test case 2 failed')
+    if ((stringify(actualOutput) !== stringify(expectedOutput)) || (stringify(actualArr) !== stringify(expectedArr))) {
+      console.error(`Test 2, one item: failed, expected output ${expectedOutput}, but got actual ${actualOutput}, expected arr ${expectedArr}, but got ${actualArr}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, one item: passed')
     }
   }
 
-  { // Test case 3
-    const arr3 = []
-    const result = arr3.shift()
+  { // Test case 3: empty array
+    const expectedArr = []
+    const expectedOutput = undefined
+    const actualArray = []
+    const actualOutput = actualArray.shift()
 
-    if (result !== undefined || arr3.length !== 0) {
-      console.error('Test case 3 failed')
+    if ((stringify(actualOutput) !== stringify(expectedOutput)) || (stringify(actualArray) !== stringify(expectedArr))) {
+      console.error(`Test 3, empty array: failed, expected output ${expectedOutput}, but got actual ${actualOutput}, expected arr ${expectedArr}, but got ${actualArray}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, empty array: passed')
     }
   }
 }
