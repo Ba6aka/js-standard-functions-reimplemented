@@ -1,8 +1,6 @@
 require('./reduce.js')
 
 function testReduce() {
-  const { stringify } = JSON
-
   { // Test case 1: normal case
     const arr = [1, 2, 3]
     const expected = 6
