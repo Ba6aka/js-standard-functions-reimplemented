@@ -1,57 +1,65 @@
 require('./slice.js')
 
 function testSlice() {
+  const { stringify } = JSON
+
   { // Test case 1: slice with no arguments
-    const arr1 = [1, 2, 3, 4, 5]
-    const result1 = arr1.slice()
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [1, 2, 3, 4, 5]
+    const actual = arr.slice()
 
-    if (JSON.stringify(result1) !== JSON.stringify([1, 2, 3, 4, 5])) {
-      console.error('Test case 1 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, slice with no arguments: failed, expected ${stringify(expected)}, but got ${stringify(actual)} `)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, slice with no arguments: passed')
     }
   }
 
-  {  // Test case 2: slice with start argument
-    const arr2 = [1, 2, 3, 4, 5]
-    const result2 = arr2.slice(2)
+  { // Test case 2: slice with start argument
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [3, 4, 5]
+    const actual = arr.slice(2)
 
-    if (JSON.stringify(result2) !== JSON.stringify([3, 4, 5])) {
-      console.error('Test case 2 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, slice with start argument: failed, expected ${stringify(expected)}, but got ${stringify(actual)} `)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, slice with start argument: passed')
     }
   }
 
-  {  // Test case 3: slice with start and end arguments
-    const arr3 = [1, 2, 3, 4, 5]
-    const result3 = arr3.slice(1, 4)
+  { // Test case 3: slice with start and end arguments
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [2, 3, 4]
+    const actual = arr.slice(1, 4)
 
-    if (JSON.stringify(result3) !== JSON.stringify([2, 3, 4])) {
-      console.error('Test case 3 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, slice with start and end arguments: failed, expected ${stringify(expected)}, but got ${stringify(actual)} `)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, slice with start and end arguments: passed')
     }
   }
-  {  // Test case 4: slice with negative start argument
-    const arr4 = [1, 2, 3, 4, 5]
-    const result4 = arr4.slice(-3)
 
-    if (JSON.stringify(result4) !== JSON.stringify([3, 4, 5])) {
-      console.error('Test case 4 failed')
+  { // Test case 4: slice with negative start argument
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [3, 4, 5]
+    const actual = arr.slice(-3)
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, slice with negative start argument: failed, expected ${stringify(expected)}, but got ${stringify(actual)} `)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, slice with negative start argument: passed')
     }
   }
 
   { // Test case 5: slice with negative end argument
-    const arr5 = [1, 2, 3, 4, 5]
-    const result5 = arr5.slice(1, -1)
+    const arr = [1, 2, 3, 4, 5]
+    const expected = [2, 3, 4]
+    const actual = arr.slice(1, -1)
 
-    if (JSON.stringify(result5) !== JSON.stringify([2, 3, 4])) {
-      console.error('Test case 5 failed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 5, slice with negative end argument: failed, expected ${stringify(expected)}, but got ${stringify(actual)} `)
     } else {
-      console.log('Test case 5: passed')
+      console.log('Test 5, slice with negative end argument: passed')
     }
   }
 }
