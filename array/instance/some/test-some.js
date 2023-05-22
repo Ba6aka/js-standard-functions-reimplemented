@@ -1,44 +1,51 @@
 require('./some.js')
 
 function testSome() {
-  {  // Test case 1
-    const arr1 = [1, 2, 3]
-    const result1 = arr1.some((elem) => elem > 2)
+  { // Test case 1: more then 2
+    const arr = [1, 2, 3]
+    const expected = true
+    const actual = arr.some((item) => item > 2)
 
-    if (!result1) {
-      console.error('Test case 1 failed')
+    if (actual !== expected) {
+      console.error(`Test 1, more then 2: failed, expected: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, more then: passed')
     }
   }
-  // Test case 2
-  const arr2 = [1, 2, 3]
-  const result2 = arr2.some((elem) => elem > 3)
 
-  if (result2) {
-    console.error('Test case 2 failed')
-  } else {
-    console.log('Test case 2: passed')
-  }
+  {  // Test case 2: more then 3
+    const arr = [1, 2, 3]
+    const expected = false
+    const actual = arr.some((item) => item > 3)
 
-  {  // Test case 3
-    const arr3 = [1, 2, 3]
-    const result3 = arr3.some((elem) => elem === 2)
-
-    if (!result3) {
-      console.error('Test case 3 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, more then 3: failed, expected: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 2, more then 3: passed')
     }
   }
+
+  {  // Test case 3: equal 2
+    const arr = [1, 2, 3]
+    const expected = true
+    const actual = arr.some((elem) => elem === 2)
+
+    if (actual !== expected) {
+      console.error(`Test 3, equal 2: failed, expected: ${expected}, but got actual: ${actual}`)
+    } else {
+      console.log('Test 3, equal 2: passed')
+    }
+  }
+
   {  // Test case 4: empty array
-    const arr4 = []
-    const result4 = arr4.some((elem) => elem > 0)
-    
-    if (result4) {
-      console.error('Test case 4 failed')
+    const arr = []
+    const expected = false
+    const actual = arr.some((elem) => elem > 0)
+
+    if (actual !== expected) {
+      console.error(`Test 4, empty array: failed, expected: ${expected}, but got actual: ${actual}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, empty array: passed')
     }
   }
 }
