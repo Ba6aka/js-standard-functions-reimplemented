@@ -1,37 +1,44 @@
-function testArrayValues() {
-  { // Test case 1
-    const arr1 = ['a', 'b', 'c']
-    const values1 = arr1.values()
-    const result1 = Array.from(values1)
+require('./values.js')
 
-    if (result1.length !== 3 || result1[0] !== 'a' || result1[1] !== 'b' || result1[2] !== 'c') {
-      console.error('Test case 1 failed')
+function testArrayValues() {
+  const { stringify } = JSON
+
+  { // Test case 1: array of strings
+    const arr = ['a', 'b', 'c']
+    const expectedLength = 3
+    const values = arr.values()
+    const actual = Array.from(values)
+
+    if (actual.length !== expectedLength || stringify(actual) !== stringify(arr)) {
+      console.error(`Test 1, array of strings:failed, expected length: ${actual.length},but got length: ${actualLength}, expected array: ${stringify(actual)}, but got array: ${stringify(arr)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, array of strings: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = [1, 2, 3, 4, 5]
-    const values2 = arr2.values()
-    const result2 = Array.from(values2)
+  { // Test case 2: array of numbers
+    const arr = [1, 2, 3, 4, 5]
+    const expectedLength = 5
+    const values = arr.values()
+    const actual = Array.from(values)
 
-    if (result2.length !== 5 || result2[0] !== 1 || result2[1] !== 2 || result2[2] !== 3 || result2[3] !== 4 || result2[4] !== 5) {
-      console.error('Test case 2 failed')
+    if (actual.length !== expectedLength || stringify(actual) !== stringify(arr)) {
+      console.error(`Test 2, array of numbers: failed, expected length: ${actual.length},but got length: ${actualLength}, expected array: ${stringify(actual)}, but got array: ${stringify(arr)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, array of numbers: passed')
     }
   }
 
   { //Test case 3: empty array
-    const arr3 = []
-    const values3 = arr3.values()
-    const result3 = Array.from(values3)
+    const arr = []
+    const expectedLength = 0
+    const values = arr.values()
+    const actual = Array.from(values)
 
-    if (result3.length !== 0) {
-      console.error('Test case 3 failed')
+    if (actual.length !== expectedLength) {
+      console.error(`Test 3, empty array: failded, expected length: ${actual.length},but got length: ${actualLength}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, empty array: passed')
     }
   }
 }
