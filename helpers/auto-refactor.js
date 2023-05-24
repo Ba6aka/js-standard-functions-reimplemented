@@ -8,7 +8,7 @@ function readFilesRecursively(dir, callback) {
   const files = fs.readdirSync(dir)
 
   files.forEach(file => {
-    
+
     const filePath = path.join(dir, file)
     const stat = fs.statSync(filePath)
     console.log(filePath)
@@ -21,13 +21,15 @@ function readFilesRecursively(dir, callback) {
   })
 }
 
-function refactorFile(filePath, content){
-  const lines = content.split('\n')
-  const newContent = lines.map(line => line.replace(/;\s*$/, '')).join('\n')
+function refactorFile(filePath, content) {
+  if (!filePath.includes('.git')) {
+    const lines = content.split('\n')
+    const newContent = lines.map(line => line.replace(/;\s*$/, '')).join('\n')
 
-  if (newContent !== content) {
-    fs.writeFileSync(filePath, newContent)
-    console.log(`Removed trailing semicolons from: ${filePath}`)
+    if (newContent !== content) {
+      fs.writeFileSync(filePath, newContent)
+      console.log(`Removed trailing semicolons from: ${filePath}`)
+    }
   }
 }
 
