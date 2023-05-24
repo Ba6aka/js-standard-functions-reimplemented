@@ -1,36 +1,44 @@
 require('./unshift.js')
 
 function testUnshift() {
-  { // Test case 1
-    const arr1 = ['a', 'b', 'c']
-    const result1 = arr1.unshift('d')
+  const { stringify } = JSON
 
-    if (result1 !== 4 || arr1[0] !== 'd' || arr1[1] !== 'a' || arr1[2] !== 'b' || arr1[3] !== 'c') {
-      console.error('Test case 1 failed')
+  { // Test case 1: array of strings
+    const arr = ['a', 'b', 'c']
+    const expectedLength = 4
+    const expectedArr = ['d', 'a', 'b', 'c']
+    const actualLength = arr.unshift('d')
+
+    if (actualLength != expectedLength || stringify(arr) != stringify(expectedArr)) {
+      console.error(`Test 1, array of strings:failed, expected length: ${expectedLength},but got length: ${actualLength}, expected array: ${stringify(expectedArr)}, but got array: ${stringify(arr)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, array of strings: passed')
     }
   }
 
-  { // Test case 2
-    const arr2 = []
-    const result2 = arr2.unshift('a', 'b', 'c')
+  { // Test case 2: empty array
+    const arr = []
+    const expectedLength = 3
+    const expectedArr = ['a', 'b', 'c']
+    const actualLength = arr.unshift('a', 'b', 'c')
 
-    if (result2 !== 3 || arr2[0] !== 'a' || arr2[1] !== 'b' || arr2[2] !== 'c') {
-      console.error('Test case 2 failed')
+    if (actualLength != expectedLength || stringify(arr) != stringify(expectedArr)) {
+      console.error(`Test 2, empty array:failed, expected length: ${expectedLength},but got length: ${actualLength}, expected array: ${stringify(expectedArr)}, but got array: ${stringify(arr)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, empty array: passed')
     }
   }
 
   { // Test case 3: adding non-primitive values
-    const arr3 = [{ name: 'John' }, { name: 'Jane' }]
-    const result3 = arr3.unshift({ name: 'Alice' })
+    const arr = [{ name: 'John' }, { name: 'Jane' }]
+    const expectedLength = 3
+    const expectedArr = [{ name: 'Alice' }, { name: 'John' }, { name: 'Jane' }]
+    const actualLength = arr.unshift({ name: 'Alice' })
 
-    if (result3 !== 3 || arr3[0].name !== 'Alice' || arr3[1].name !== 'John' || arr3[2].name !== 'Jane') {
-      console.error('Test case 3 failed')
+    if (actualLength != expectedLength || stringify(arr) != stringify(expectedArr)) {
+      console.error(`Test 3,adding non-primitive values: failed, expected length: ${expectedLength},but got length: ${actualLength}, expected array: ${stringify(expectedArr)}, but got array: ${stringify(arr)}`)
     } else {
-      console.log('Test case 3: passed')
+      console.log('Test 3, adding non-primitive values: passed')
     }
   }
 }
