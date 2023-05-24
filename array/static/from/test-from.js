@@ -11,7 +11,7 @@ function testFrom() {
     if (stringify(actual) !== stringify(expected)) {
       console.error(`Test 1, array-like object: failed, expected ${stringify(expected)}, but got ${stringify(actual)}`)
     } else {
-      console.log('Test 1, array-like object: passed');
+      console.log('Test 1, array-like object: passed')
     }
   }
 
@@ -57,4 +57,4 @@ function testFrom() {
   }
 }
 
-testFrom();
+testFrom()
