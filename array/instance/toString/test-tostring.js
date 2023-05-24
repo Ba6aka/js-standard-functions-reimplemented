@@ -1,51 +1,56 @@
 require('./toString.js')
 
 function testToString() {
-  // Test case 1: non-empty array
-  {
-    const arr1 = [1, 'hello', true]
-    const result = arr1.toString()
+  const { stringify } = JSON
 
-    if (result !== '1,hello,true') {
-      console.error('Test case 1 failed')
+
+  { // Test case 1: non-empty array
+    const arr = [1, 'hello', true]
+    const expected = '1,hello,true'
+    const actual = arr.toString()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 1, non-empty array: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 1: passed')
+      console.log('Test 1, non-empty array: passed')
     }
   }
 
-  // Test case 2: empty array
-  {
-    const arr2 = []
-    const result = arr2.toString()
 
-    if (result !== '') {
-      console.error('Test case 2 failed')
+  { // Test case 2: empty array
+    const arr = []
+    const expected = ''
+    const actual = arr.toString()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 2, empty array: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 2: passed')
+      console.log('Test 2, empty array: passed')
     }
   }
 
-  // Test case 3: array with undefined values
-  {
-    const arr3 = [undefined, 1, 'hello']
-    const result = arr3.toString()
+  { // Test case 3: array with undefined values
+    const arr = [undefined, 1, 'hello']
+    const expected = ',1,hello'
+    const actual = arr.toString()
 
-    if (result !== ',1,hello') {
-      console.error('Test case 3 failed')
-    } else {
-      console.log('Test case 3: passed')
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 3, array with undefined values: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
+    }  else {
+      console.log('Test 3, array with undefined values: passed')
     }
   }
 
-  // Test case 4: array with null values
-  {
-    const arr4 = [null, 1, 'hello']
-    const result = arr4.toString()
-    
-    if (result !== ',1,hello') {
-      console.error('Test case 4 failed')
+ 
+  { // Test case 4: array with null values
+    const arr = [null, 1, 'hello']
+    const expected = ',1,hello'
+    const actual = arr.toString()
+
+    if (stringify(actual) !== stringify(expected)) {
+      console.error(`Test 4, array with null values: failed, expected ${stringify(expected)},but got ${stringify(actual)}`)
     } else {
-      console.log('Test case 4: passed')
+      console.log('Test 4, array with null values: passed')
     }
   }
 }

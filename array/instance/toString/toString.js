@@ -10,5 +10,6 @@ Array.prototype.toString = function toSrting() {
       result += ','
     }
   }
+  
   return result
 }
