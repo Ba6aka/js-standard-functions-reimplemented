@@ -1,17 +1,15 @@
 require('./every.js')
 
 function testEvery() {
-  const { stringify } = JSON
-
   { // Test case 1: even case
     const arr = [2, 4, 6, 8, 10]
     const expected = true
     const actual = arr.every((num) => num % 2 === 0)
 
-    if (!actual) {
-      console.error(`Test 2, even case: failed, expected: ${expected}, but got ${actual}`)
+    if (actual !== expected) {
+      console.error(`Test 1, even case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log(`Test 2, even case: passed,`)
+      console.log(`Test 1, even case: passed,`)
     }
   }
 
@@ -29,10 +27,10 @@ function testEvery() {
 
   { // Test case 3: even reverse case
     const arr = [2, 4, 5, 6, 8]
-    const expected = false
+    const expected = true
     const actual = arr.every((num) => num % 2 === 0)
 
-    if (!expected === actual) {
+    if (actual === expected) {
       console.error(`Test 3, even reverse case: failed, expected: ${!expected}, but got ${actual}`)
     } else {
       console.log('Test 3, even reverse case: passed')
@@ -48,7 +46,7 @@ function testEvery() {
     try {
       actual = arr.every()
     } catch (err) {
-      if (stringify(actual) !== stringify(expected)) {
+      if (actual !== expected) {
         console.error(`Test 4, wrong argumet: failed, expected: ${expected}, but got ${actual}`)
       } else {
         console.log('Test 4, wrong argument: passed')
