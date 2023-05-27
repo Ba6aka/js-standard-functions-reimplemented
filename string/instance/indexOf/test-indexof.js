@@ -1,7 +1,7 @@
 require('./indexOf.js')
 
 function testIndexOf() {
-  {// Test case 1: standard
+  { // Test case 1: normal case
     const str = "Hello, world!"
     const index = str.indexOf("world")
 
