@@ -3,7 +3,7 @@ require('./link.js')
 testLink()
 
 function testLink() {
-  { // Test case 1
+  { // Test case 1: normal case
     const str = "Google"
     const url = "https://www.google.com"
     const expected = '<a href="https://www.google.com">Google</a>'
