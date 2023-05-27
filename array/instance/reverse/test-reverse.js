@@ -1,3 +1,7 @@
+require('./reverse.js')
+
+testReverse()
+
 function testReverse() {
   const { stringify } = JSON
 
@@ -50,4 +54,3 @@ function testReverse() {
   }
 }
 
-testReverse()
