@@ -1,12 +1,14 @@
 require('./flat.js')
 
+testFlat()
+
 function testFlat() {
   const { stringify } = JSON
 
-  { // Test case 1: three lvl of nested
+  { // Test case 1: two lvl of nested
     const arr = [1, [2, 3], [4, [5, 6]]]
     const expected = [1, 2, 3, 4, 5, 6]
-    const actual = arr.flat()
+    const actual = arr.flat(2)
 
     if (stringify(actual) !== stringify(expected)) {
       console.error(`Test 1, three lvl of nested: failed, expected: ${expected},but got actual: ${actual}`)
@@ -15,10 +17,10 @@ function testFlat() {
     }
   }
 
-  { // Test case 2: five lvl of nested
+  { // Test case 2: four lvl of nested
     const arr = [1, [2, [3, [4, [5]]]]]
     const expected = [1, 2, 3, 4, 5]
-    const actual = arr.flat()
+    const actual = arr.flat(4)
 
     if (stringify(actual) !== stringify(expected)) {
       console.error(`Test 2, five lvl of nested: failed, expected: ${expected},but got actual: ${actual}`)
@@ -30,7 +32,7 @@ function testFlat() {
   { //Test case 3: depth
     const arr = [1, [2, [3, [4, [5]]]]]
     const expected = [1, 2, 3, 4, 5]
-    const actual = arr.flat(2)
+    const actual = arr.flat(4)
 
     if (stringify(actual) !== stringify(expected)) {
       console.error(`Test 3, depth: failed, expected: ${expected},but got actual: ${actual}`)
@@ -64,4 +66,4 @@ function testFlat() {
   }
 }
 
-testFlat()
+
