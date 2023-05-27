@@ -1,38 +1,41 @@
 require('./italics.js')
 
+testItalics()
+
 function testItalics() {
-  {// Test case 1: standard
+  { // Test case 1: normal case
     const str = "This is a test"
-    const strItalics = str.italics()
+    const expected = '<i>This is a test</i>'
+    const actual = str.italics()
 
-    if (strItalics !== '<i>This is a test</i>') {
-      console.error('Test case 1 failed')
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  {// Test case 2: string with other tag
+  { // Test case 2: string with other tag
     const str = "<b>This is bold text</b>"
-    const strItalics = str.italics()
+    const expected = '<i><b>This is bold text</b></i>'
+    const actual = str.italics()
 
-    if (strItalics !== '<i><b>This is bold text</b></i>') {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, string with other tag: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, string with other tag:  passed')
     }
   }
 
-  {// Test case 3: empty string
+  { // Test case 3: empty string
     const str = ""
-    const strItalics = str.italics()
+    const expected = '<i></i>'
+    const actual = str.italics()
 
-    if (strItalics !== '<i></i>') {
-      console.error('Test case 3 failed')
+    if (actual !== expected) {
+      console.error(`Test 3, empty string: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test 3, empty string: passed')
     }
   }
 }
-
-testItalics()
