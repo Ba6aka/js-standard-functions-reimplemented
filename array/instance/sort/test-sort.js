@@ -1,5 +1,7 @@
 require('./sort.js')
 
+testSort()
+
 function testSort() {
   const { stringify } = JSON
 
@@ -40,4 +42,4 @@ function testSort() {
   }
 }
 
-testSort()
+
