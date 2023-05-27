@@ -1,5 +1,7 @@
 require('./includes.js')
 
+testIncludes()
+
 function testIncludes() {
   const { stringify } = JSON
 
@@ -65,4 +67,3 @@ function testIncludes() {
 
 }
 
-testIncludes()
