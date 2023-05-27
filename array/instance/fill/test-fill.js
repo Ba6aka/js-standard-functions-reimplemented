@@ -1,5 +1,7 @@
 require('./fill.js')
 
+testFill()
+
 function testFill() {
   const { stringify } = JSON
 
@@ -64,4 +66,3 @@ function testFill() {
   }
 }
 
-testFill()
