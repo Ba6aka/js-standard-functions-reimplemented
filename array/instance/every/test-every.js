@@ -1,5 +1,7 @@
 require('./every.js')
 
+testEvery()
+
 function testEvery() {
   { // Test case 1: even case
     const arr = [2, 4, 6, 8, 10]
@@ -55,4 +57,4 @@ function testEvery() {
   }
 }
 
-testEvery()
+
