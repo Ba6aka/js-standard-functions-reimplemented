@@ -1,5 +1,7 @@
 require('./shift.js')
 
+testShift()
+
 function testShift() {
   const { stringify } = JSON
 
@@ -42,5 +44,3 @@ function testShift() {
     }
   }
 }
-
-testShift()
