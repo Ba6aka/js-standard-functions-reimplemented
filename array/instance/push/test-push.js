@@ -1,5 +1,7 @@
 require('./push.js')
 
+testPush()
+
 function testPush() {
   const { stringify } = JSON
 
@@ -64,4 +66,4 @@ function testPush() {
   }
 }
 
-testPush()
+
