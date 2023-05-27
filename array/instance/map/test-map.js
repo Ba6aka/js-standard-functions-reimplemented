@@ -1,5 +1,7 @@
 require('./map.js')
 
+testMap()
+
 function testMap() {
   const { stringify } = JSON
 
@@ -17,7 +19,7 @@ function testMap() {
 
   { // Test case 2: to upper case
     const arr = ['apple', 'banana', 'orange']
-    const expected = 'APPLE,BANANA,ORANGE'
+    const expected = ['APPLE', 'BANANA', 'ORANGE']
     const actual = arr.map(fruit => fruit.toUpperCase())
 
     if (stringify(actual) !== stringify(expected)) {
@@ -29,7 +31,7 @@ function testMap() {
 
   { // Test case 3: parse integer
     const arr = ['1', '2', '3']
-    const expected = '1,2,3'
+    const expected = [1, 2, 3]
     const actual = arr.map(str => parseInt(str))
 
     if (stringify(actual) !== stringify(expected)) {
@@ -41,7 +43,7 @@ function testMap() {
 
   { // Test case 4: empty array
     const arr = []
-    const expected = ''
+    const expected = []
     const actual = arr.map(x => x * 2)
 
     if (stringify(actual) !== stringify(expected)) {
@@ -53,7 +55,7 @@ function testMap() {
 
   { // Test case 5: mixed array
     const arr = ['1', 2, '3']
-    const expected = '1,2,3'
+    const expected = [1, 2, 3]
     const actual = arr.map(x => parseInt(x))
 
     if (stringify(actual) !== stringify(expected)) {
@@ -64,4 +66,3 @@ function testMap() {
   }
 }
 
-testMap()
