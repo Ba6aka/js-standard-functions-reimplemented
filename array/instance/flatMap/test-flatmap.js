@@ -1,5 +1,7 @@
 require('./flatMap.js')
 
+testFlatMap()
+
 function testFlatMap() {
   const { stringify } = JSON
 
@@ -89,4 +91,3 @@ function testFlatMap() {
   }
 }
 
-testFlatMap()
