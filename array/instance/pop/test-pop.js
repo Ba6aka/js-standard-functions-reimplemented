@@ -1,5 +1,7 @@
 require('./pop.js')
 
+testPop()
+
 function testPop() {
   const { stringify } = JSON
 
@@ -60,4 +62,4 @@ function testPop() {
   }
 }
 
-testPop()
+
