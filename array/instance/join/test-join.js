@@ -1,5 +1,7 @@
 require('./join.js')
 
+testJoin()
+
 function testJoin() {
   const { stringify } = JSON
 
@@ -64,4 +66,3 @@ function testJoin() {
   }
 }
 
-testJoin()
