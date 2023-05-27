@@ -1,38 +1,41 @@
 require('./indexOf.js')
 
+testIndexOf()
+
 function testIndexOf() {
   { // Test case 1: normal case
     const str = "Hello, world!"
-    const index = str.indexOf("world")
+    const expected = 7
+    const actual = str.indexOf("world")
 
-    if (index !== 7) {
-      console.error('Test case 1 failed')
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  {// Test case 2: with wrong start position
+  { // Test case 2: wrong start position
     const str = "Hello, world!"
-    const index = str.indexOf("world", 8)
+    const expected = -1
+    const actual = str.indexOf("world", 8)
 
-    if (index !== -1) {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, wrong start position: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, wrong start position: passed')
     }
   }
 
-  {// Test case 3: with wrong argument
+  { // Test case 3: wrong argument
     const str = "Hello, world!"
-    const index = str.indexOf("foo")
+    const expected = -1
+    const actual = str.indexOf("foo")
 
-    if (index !== -1) {
-      console.error('Test case 3 failed')
+    if (actual !== expected) {
+      console.error(`Test 3, wrong argument: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test 3, wrong argument: passed')
     }
   }
 }
-
-testIndexOf()
