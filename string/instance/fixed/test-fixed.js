@@ -1,27 +1,30 @@
 require('./fixed.js')
 
-function testFixed() {
-  {// Test case 1: standard
-    const str = "Hello, world!"
-    const strFixed = str.fixed()
+testFixed()
 
-    if (strFixed !== "<tt>Hello, world!</tt>") {
-      console.error('Test case 1 failed')
+function testFixed() {
+  { // Test case 1: standard
+    const str = "Hello, world!"
+    const expected = "<tt>Hello, world!</tt>"
+    const actual = str.fixed()
+
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  {// Test case 3: empty string
+  { // Test case 3: empty string
     const str = "   "
-    const strFixed = str.fixed()
+    const expected = "<tt>   </tt>"
+    const actual = str.fixed()
 
-    if (strFixed !== "<tt>   </tt>") {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, empty string: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, empty string: passed')
     }
   }
 }
 
-testFixed()

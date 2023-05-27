@@ -1,45 +1,53 @@
 require('./endsWith.js')
 
+testEndsWith()
+
 function testEndsWith() {
-  {// Test case 1: standard
+  { // Test case 1: normal case
     const str = "Hello, world!"
-    
-    if (str.endsWith("world!") !== true) {
-      console.error('Test case 1 failed')
+    const expected = true
+    const actual = str.endsWith("world!")
+
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  {// Test case 2: empty string
+  { // Test case 2: empty string
     const str = ""
+    const expected = true
+    const actual = str.endsWith("")
 
-    if (str.endsWith("") !== true) {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, empty string: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, empty string: passed')
     }
   }
 
-  {// Test case 3: endPosistion
+  { // Test case 3: endPosistion
     const str = "The quick brown fox jumps over the lazy dog"
+    const expected = true
+    const actual = str.endsWith("quick", 9)
 
-    if (str.endsWith("quick", 9) !== true) {
-      console.error('Test case 3 failed')
+    if (actual !== expected) {
+      console.error(`Test 3, endPosistion: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test 3, endPosistion: passed')
     }
   }
 
-  {// Test case 4: wrong endPosistion
+  { // Test case 4: wrong endPosistion
     const str = "The quick brown fox jumps over the lazy dog"
+    const expected = false
+    const actual = str.endsWith("brown", 13)
     
-    if (str.endsWith("brown", 13) !== false) {
-      console.error('Test case 4 failed')
+    if (actual !== expected) {
+      console.error(`Test 4, wrong endPosistion: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 4 passed')
+      console.log('Test 4, wrong endPosistion: passed')
     }
   }
 }
-
-testEndsWith()
