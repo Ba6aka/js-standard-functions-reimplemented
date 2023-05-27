@@ -1,5 +1,6 @@
 require('./entries.js')
 
+
 function testEntries() {
   const arr = ['a', 'b', 'c']
   
@@ -50,5 +51,3 @@ function testEntries() {
     console.log('Test case 3 passed')
   }
 }
-
-testEntries()
