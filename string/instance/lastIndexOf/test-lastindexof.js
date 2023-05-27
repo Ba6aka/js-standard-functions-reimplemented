@@ -1,38 +1,41 @@
 require('./lastIndexOf.js')
 
+testLastIndexOf()
+
 function testLastIndexOf() {
-  {// Test case 1: standard
+  { // Test case 1: standard
     const str = "Hello, world!"
-    const index = str.lastIndexOf("o")
+    const expected = 8
+    const actual = str.lastIndexOf("o")
 
-    if (index !== 8) {
-      console.error('Test case 1 failed')
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  {// Test case 2: empty string
+  { // Test case 2: empty string
     const str = ""
-    const index = str.lastIndexOf("o", 5)
+    const expected = -1
+    const actual = str.lastIndexOf("o", 5)
 
-    if (index !== -1) {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, empty string: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, empty string: passed')
     }
   }
 
-  {// Test case 3: wrong argument
+  { // Test case 3: wrong argument
     const str = "Hello, world!"
-    const index = str.lastIndexOf("z")
-    
-    if (index !== -1) {
-      console.error('Test case 3 failed')
+    const expected = -1
+    const actual = str.lastIndexOf("z")
+
+    if (actual !== expected) {
+      console.error(`Test 3, wrong argument: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 3 passed')
+      console.log('Test 3, wrong argument: passed')
     }
   }
 }
-
-testLastIndexOf()
