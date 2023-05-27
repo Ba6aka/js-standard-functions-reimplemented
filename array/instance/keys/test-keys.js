@@ -1,5 +1,7 @@
 require('./keys.js')
 
+testKeys()
+
 function testKeys() {
   const { stringify } = JSON
 
@@ -69,4 +71,3 @@ function testKeys() {
   }
 }
 
-testKeys()
