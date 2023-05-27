@@ -1,5 +1,7 @@
 require('./forEach.js')
 
+testForEach()
+
 function testForEach() {
   const { stringify } = JSON
 
@@ -77,4 +79,3 @@ function testForEach() {
   }
 }
 
-testForEach()
