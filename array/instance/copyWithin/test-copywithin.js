@@ -1,5 +1,7 @@
 require('./copyWithin.js')
 
+testCopyWithin()
+
 function testCopyWithin() {
   const { stringify } = JSON
 
@@ -54,4 +56,4 @@ function testCopyWithin() {
   }
 }
 
-testCopyWithin()
+
