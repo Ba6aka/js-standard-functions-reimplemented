@@ -1,5 +1,7 @@
 require('./values.js')
 
+testArrayValues()
+
 function testArrayValues() {
   const { stringify } = JSON
 
@@ -43,4 +45,4 @@ function testArrayValues() {
   }
 }
 
-testArrayValues()
+
