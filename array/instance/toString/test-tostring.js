@@ -1,8 +1,9 @@
 require('./toString.js')
 
+testToString()
+
 function testToString() {
   const { stringify } = JSON
-
 
   { // Test case 1: non-empty array
     const arr = [1, 'hello', true]
@@ -55,4 +56,4 @@ function testToString() {
   }
 }
 
-testToString()
+
