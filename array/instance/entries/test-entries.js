@@ -1,5 +1,7 @@
 require('./entries.js')
 
+testEntries()
+
 function testEntries() {
   const { stringify } = JSON
 
@@ -52,4 +54,3 @@ function testEntries() {
   }
 }
 
-testEntries()
