@@ -1,7 +1,9 @@
 require('./charCodeAt.js')
 
+testCharCodeAt()
+
 function testCharCodeAt() {
-  {// Test case 1: standard
+  { // Test case 1: standard
     const str = 'ABC'
     const expected = 65
     const actual = str.charCodeAt(0)
@@ -13,7 +15,7 @@ function testCharCodeAt() {
     }
   }
 
-  {// Test case 2: empty stirng
+  { // Test case 2: empty stirng
     const str = ''
     const expected = NaN
     const actual = str.charCodeAt(1)
@@ -26,4 +28,3 @@ function testCharCodeAt() {
   }
 }
 
-testCharCodeAt()
