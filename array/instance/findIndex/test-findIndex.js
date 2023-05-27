@@ -1,5 +1,7 @@
 require('./findIndex.js')
 
+testFind()
+
 function testFindIndex() {
   const { stringify } = JSON
 
@@ -74,4 +76,3 @@ function testFindIndex() {
   }
 }
 
-testFindIndex()
