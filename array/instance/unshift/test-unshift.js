@@ -1,5 +1,7 @@
 require('./unshift.js')
 
+testUnshift()
+
 function testUnshift() {
   const { stringify } = JSON
 
@@ -43,4 +45,3 @@ function testUnshift() {
   }
 }
 
-testUnshift()
