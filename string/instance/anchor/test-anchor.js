@@ -1,17 +1,18 @@
 require('./anchor.js')
 
+testAnchor()
+
 function testAnchor() {
-  {// Test case 1 : standard case
+  {// Test case 1 : normal case
     const str = "Hello, world!"
     const name = "myAnchor"
-    const anchoredStr = str.anchor(name)
+    const expected = `<a name="${name}">${str}</a>`
+    const actual = str.anchor(name)
 
-    if (anchoredStr !== `<a name="${name}">${str}</a>`) {
-      console.error('Test case 1 failed')
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case:  passed')
     }
   }
 }
-
-testAnchor()
