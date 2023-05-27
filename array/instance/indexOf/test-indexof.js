@@ -1,5 +1,6 @@
 require('./indexOf.js')
 
+testIndexOf()
 
 function testIndexOf() {
   const { stringify } = JSON
@@ -65,4 +66,4 @@ function testIndexOf() {
   }
 }
 
-testIndexOf()
+
