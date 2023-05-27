@@ -1,5 +1,7 @@
 require('./some.js')
 
+testSome()
+
 function testSome() {
   { // Test case 1: more then 2
     const arr = [1, 2, 3]
@@ -50,4 +52,3 @@ function testSome() {
   }
 }
 
-testSome()
