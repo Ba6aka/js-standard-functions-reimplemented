@@ -1,5 +1,7 @@
 require('./lastIndexOf.js')
 
+testLastIndexOf()
+
 function testLastIndexOf() {
   const { stringify } = JSON
 
@@ -71,4 +73,3 @@ function testLastIndexOf() {
   }
 }
 
-testLastIndexOf()
