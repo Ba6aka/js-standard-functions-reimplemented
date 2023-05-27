@@ -1,27 +1,29 @@
 require('./fontcolor.js')
 
-function testFontcolor() {
-  {// Test case 1: standard
-    const str = "Hello, world!"
-    const coloredStr = str.fontcolor("red")
+testFontcolor()
 
-    if (coloredStr !== '<font color="red">Hello, world!</font>') {
-      console.error('Test case 1 failed')
+function testFontcolor() {
+  { // Test case 1: normal case
+    const str = "Hello, world!"
+    const expected = '<font color="red">Hello, world!</font>'
+    const actual = str.fontcolor("red")
+
+    if (actual !== expected) {
+      console.error(`Test 1, normal case: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 1 passed')
+      console.log('Test 1, normal case: passed')
     }
   }
 
-  {// Test case 2: empry string
+  { // Test case 2: empty string
     const str = ""
-    const coloredStr = str.fontcolor("blue")
+    const expected = '<font color="blue"></font>'
+    const actual = str.fontcolor("blue")
 
-    if (coloredStr !== '<font color="blue"></font>') {
-      console.error('Test case 2 failed')
+    if (actual !== expected) {
+      console.error(`Test 2, empty string: failed, expected: ${expected}, but got ${actual}`)
     } else {
-      console.log('Test case 2 passed')
+      console.log('Test 2, empty string: passed')
     }
   }
 }
-
-testFontcolor()
