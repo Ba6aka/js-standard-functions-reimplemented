@@ -1,5 +1,7 @@
 require('./toLocaleString.js')
 
+testToLocaleString()
+
 function testToLocaleString() {
   const { stringify } = JSON
 
@@ -52,4 +54,4 @@ function testToLocaleString() {
   }
 }
 
-testToLocaleString()
+
