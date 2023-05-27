@@ -1,5 +1,7 @@
 require('./findLast.js')
 
+testFindLast()
+
 function testFindLast() {
   const { stringify } = JSON
 
@@ -78,4 +80,3 @@ function testFindLast() {
   }
 }
 
-testFindLast()
