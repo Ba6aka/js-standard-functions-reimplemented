@@ -1,4 +1,4 @@
-require('./test-concat.js')
+require('./concat.js')
 
 testConcat()
 
