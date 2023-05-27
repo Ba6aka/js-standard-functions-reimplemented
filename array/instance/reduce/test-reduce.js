@@ -1,5 +1,7 @@
 require('./reduce.js')
 
+testReduce()
+
 function testReduce() {
   { // Test case 1: normal case
     const arr = [1, 2, 3]
@@ -62,4 +64,3 @@ function testReduce() {
   }
 }
 
-testReduce()
