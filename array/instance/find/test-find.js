@@ -1,5 +1,7 @@
 require('./find.js')
 
+testFind()
+
 function testFind() {
   const { stringify } = JSON
 
@@ -73,5 +75,3 @@ function testFind() {
     }
   }
 }
-
-testFind()
