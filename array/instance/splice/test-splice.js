@@ -1,3 +1,7 @@
+require('./splice.js')
+
+testSplice()
+
 function testSplice() {
   const { stringify } = JSON
 
@@ -63,4 +67,4 @@ function testSplice() {
   }
 }
 
-testSplice()
+
