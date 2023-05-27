@@ -1,5 +1,7 @@
 require('./slice.js')
 
+testSlice()
+
 function testSlice() {
   const { stringify } = JSON
 
@@ -64,4 +66,4 @@ function testSlice() {
   }
 }
 
-testSlice()
+
