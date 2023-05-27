@@ -1,4 +1,8 @@
-function testFindLast() {
+require('./findLastIndex.js')
+
+testFindLastIndex()
+
+function testFindLastIndex() {
   const { stringify } = JSON
 
   { // Test case 1: even case
