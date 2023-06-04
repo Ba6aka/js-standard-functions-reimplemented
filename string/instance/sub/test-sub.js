@@ -1,7 +1,9 @@
 require('./sub.js')
 
+testSub()
+
 function testSub() {
-  {// Test case 1: standard
+  { // Test case 1: normal case
     const str1 = "H2O"
     const sub1 = str1.sub()
 
@@ -23,5 +25,3 @@ function testSub() {
     }
   }
 }
-
-testSub()
